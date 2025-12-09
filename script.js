@@ -52,13 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const mood = e.target.closest('button').dataset.mood;
         const wish = wishes[mood] || wishes.neutral;
 
-        // 1. Prepare Email
-        const email = "hmyriayehor@gmail.com";
-        const subject = `Myroslava's Mood: ${mood.charAt(0).toUpperCase() + mood.slice(1)}`;
-        const body = `Hi Yehor,\n\nMyroslava just checked in. Her mood is: ${mood}.\n\n(Auto-generated from Good Morning Site)`;
-        
-        // Trigger mailto
-        window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        // 1. Send Email via Backend
+        fetch('/api/send-telegram', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ mood })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Telegram request sent successfully');
+            } else {
+                console.error('Failed to send Telegram request');
+            }
+        })
+        .catch(error => {
+            console.error('Error sending Telegram request:', error);
+        });
 
         // 2. Hide Poll
         pollContainer.classList.add('hidden');
