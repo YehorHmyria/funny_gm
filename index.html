@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Morning, Myroslava</title>
+    <!-- Removed Google Fonts links as we are using system monospace or standard web safe fonts for code look -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="content-container">
+        <div class="greeting-container">
+            <h1 id="greeting" class="greeting"></h1>
+            <h2 id="poll-question" class="poll-question"></h2>
+        </div>
+        
+        <div id="poll-container" class="poll-container hidden">
+            <button class="emoji-btn" data-mood="sad">😭</button>
+            <button class="emoji-btn" data-mood="confused">😕</button>
+            <button class="emoji-btn" data-mood="neutral">😐</button>
+            <button class="emoji-btn" data-mood="happy">🙂</button>
+            <button class="emoji-btn" data-mood="excited">🤩</button>
+        </div>
+
+        <div id="wish-container" class="wish-container">
+            <p id="wish-text" class="wish-text"></p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

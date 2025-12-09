@@ -1,0 +1,139 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
+    --cursor-color: #222222;
+    --accent-color: #007bff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Courier New', Courier, monospace; /* Code aesthetic */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.content-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Typography matching "typewriter" feel but elegant */
+.greeting-container {
+    margin-bottom: 2rem;
+    min-height: 4rem; /* Reserve space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.greeting {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.poll-question {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #555;
+    min-height: 1.5em;
+}
+
+.poll-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 2rem;
+    transition: opacity 0.5s ease;
+}
+
+.emoji-btn {
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    user-select: none;
+}
+
+.emoji-btn:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.wish-container {
+    margin-top: 2rem;
+    min-height: 3rem;
+    padding: 0 10px;
+}
+
+.wish-text {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+    color: #444;
+}
+
+/* Cursor Animation */
+.cursor {
+    display: inline-block;
+    width: 10px; /* Block cursor */
+    height: 1.2em;
+    background-color: var(--cursor-color);
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+    vertical-align: text-bottom;
+}
+
+/* Blinking Effect */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    display: none; /* Hide fully to prevent clicks */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .greeting {
+        font-size: 1.8rem;
+    }
+    
+    .poll-question {
+        font-size: 1rem;
+    }
+
+    .emoji-btn {
+        font-size: 2rem;
+        gap: 10px;
+    }
+    
+    .wish-text {
+        font-size: 1.1rem;
+    }
+    
+    .content-container {
+        padding: 30px 15px;
+    }
+}
